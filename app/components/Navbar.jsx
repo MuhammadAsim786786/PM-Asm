@@ -86,10 +86,10 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href="/app/generate-plan"
+              href="/generate-plan"
               onClick={() => setOpen(false)}
               className={`block px-3 py-2 rounded-md text-base font-medium ${
-                isActive("/app/generate-plan")
+                isActive("/generate-plan")
                   ? "bg-indigo-600 text-white"
                   : "text-slate-700 hover:bg-slate-50"
               }`}
