@@ -94,6 +94,13 @@ export default function Page() {
     URL.revokeObjectURL(url);
   };
 
+  const truncateToLastSentence = (text) => {
+    if (!text) return text;
+    const lastPeriod = text.lastIndexOf('.');
+    if (lastPeriod === -1) return text;
+    return text.substring(0, lastPeriod + 1);
+  };
+
   const parseComparisonSections = (text = "") => {
     const out = {
       similarities: null,
@@ -114,9 +121,9 @@ export default function Page() {
     const diff = text.match(diffRe);
     const uniq = text.match(uniqRe);
 
-    out.similarities = sim?.[2]?.trim() ?? null;
-    out.differences = diff?.[2]?.trim() ?? null;
-    out.unique = uniq?.[2]?.trim() ?? null;
+    out.similarities = sim?.[2]?.trim() ? truncateToLastSentence(sim[2].trim()) : null;
+    out.differences = diff?.[2]?.trim() ? truncateToLastSentence(diff[2].trim()) : null;
+    out.unique = uniq?.[2]?.trim() ? truncateToLastSentence(uniq[2].trim()) : null;
 
     return out;
   };
@@ -159,7 +166,7 @@ export default function Page() {
               onChange={(e) => setQuery(e.target.value)}
               onKeyPress={(e) => e.key === "Enter" && handleSubmit()}
               placeholder="Enter topic (e.g., Procurement)"
-              className="flex-1 rounded-lg border border-gray-300 px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="flex-1 rounded-lg border border-gray-300 bg-white px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <div className="flex gap-2 sm:gap-3">
               <button

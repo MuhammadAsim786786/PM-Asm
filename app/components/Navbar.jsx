@@ -16,7 +16,6 @@ export default function Navbar() {
     <nav className="bg-white border-b shadow-sm">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* brand */}
           <div className="flex items-center gap-4">
             <Link href="/" className="flex items-center space-x-2">
               <div className="w-8 h-8 rounded-md bg-indigo-600 text-white flex items-center justify-center font-bold">
@@ -28,7 +27,6 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* desktop links */}
           <div className="hidden sm:flex sm:items-center sm:space-x-3">
             <Link
               href="/"
@@ -40,7 +38,7 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href="/app/generate-plan"
+              href="/generate-plan"
               className={`px-3 py-1.5 rounded-md text-sm font-medium ${
                 isActive("/app/generate-plan")
                   ? "bg-indigo-600 text-white"
@@ -51,7 +49,6 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* mobile menu button */}
           <div className="sm:hidden">
             <button
               onClick={() => setOpen((s) => !s)}
@@ -75,7 +72,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* mobile panel */}
       {open && (
         <div className="sm:hidden border-t bg-white">
           <div className="px-2 pt-2 pb-3 space-y-1">
