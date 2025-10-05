@@ -12,7 +12,7 @@ export default function ProjectPlanPage() {
     budget: "",
     methodology: "",
     additionalDetails: "",
-  });//
+  });
   const [response, setResponse] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
