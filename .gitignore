@@ -37,3 +37,9 @@ Thumbs.db
 .idea/
 *.sublime-workspace
 *.sublime-project
+# Add this to .gitignore
+.next/
+node_modules/
+.env.local
+.DS_Store
+*.log
