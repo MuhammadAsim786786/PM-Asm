@@ -17,7 +17,6 @@ export default function ProjectPlanPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  // Edit mode for generated plan
   const [editing, setEditing] = useState(false);
   const [editedPlan, setEditedPlan] = useState("");
 
