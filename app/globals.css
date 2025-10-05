@@ -1,18 +1,12 @@
 @import "tailwindcss";
 
-/* Theme customization (optional) */
 @theme {
   --font-sans: ui-sans-serif, system-ui, sans-serif;
-  --color-bg-light: #ffffff;
-  --color-bg-dark: #0f172a;
-  --color-text-light: #111827;
-  --color-text-dark: #f8fafc;
+  
 }
 
-/* Global styles */
 :root {
   color-scheme: light dark;
-  background-color: var(--color-bg-light);
   color: var(--color-text-light);
   font-family: var(--font-sans);
 }
