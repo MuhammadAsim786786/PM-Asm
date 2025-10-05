@@ -10,7 +10,7 @@ const TEMP = 0.3;
 const CHAR_LIMIT = 400;
 const MAX_SECTIONS = 1;
 const TOKENS_SUMMARY = 220;
-const TOKENS_COMPARE = 320;
+const TOKENS_COMPARE = 420;
 
 const BOOK_DIRS = [
   path.join(process.cwd(), "data"),
@@ -51,7 +51,6 @@ async function loadBooks(dir) {
   }
   return results;
 }
-
 
 function normalize(fileRec) {
   const { fileName, data } = fileRec;
@@ -129,14 +128,12 @@ export async function POST(req) {
         matched.push({ ...b, matches: hits.slice(0, MAX_SECTIONS) });
     }
 
-    // fallback: if exact match not found, include all books
     if (matched.length === 0) {
       matched.push(
         ...books.map((b) => ({ ...b, matches: b.sections.slice(0, 1) }))
       );
     }
 
-    // === per-book summaries ===
     const summaries = [];
     for (const b of matched) {
       const section = b.matches[0];
@@ -163,10 +160,19 @@ Summarize how the concept "${topic}" relates to or appears within this section f
 
       const summary =
         res?.choices?.[0]?.message?.content?.trim() ?? "(no summary)";
-      summaries.push({ bookId: b.bookId, title: b.title, summary });
+      
+      summaries.push({ 
+        bookId: b.bookId, 
+        title: b.title, 
+        summary,
+        matches: b.matches.map(m => ({
+          title: m.title,
+          content: m.content,
+          sectionId: m.sectionId
+        }))
+      });
     }
 
-    // === aggregate comparison ===
     const comparePrompt = `
 Compare how the topic "${topic}" is treated across the following project management sources.
 Use only the information in the summaries. 
