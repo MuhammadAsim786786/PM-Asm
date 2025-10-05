@@ -52,7 +52,7 @@ async function loadBooks(dir) {
   return results;
 }
 
-// normalize different data structures
+
 function normalize(fileRec) {
   const { fileName, data } = fileRec;
   let sections = [];
