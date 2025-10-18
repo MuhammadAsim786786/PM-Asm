@@ -47,6 +47,16 @@ export default function Navbar() {
             >
               Generate Plan
             </Link>
+            <Link
+              href="/process-tailoring"
+              className={`px-3 py-1.5 rounded-md text-sm font-medium ${
+                isActive("/app/process-tailoring")
+                  ? "bg-indigo-600 text-white"
+                  : "text-slate-700 hover:bg-slate-100"
+              }`}
+            >
+              Tailor Process
+            </Link>
           </div>
 
           <div className="sm:hidden">
@@ -95,6 +105,16 @@ export default function Navbar() {
               }`}
             >
               Generate Plan
+            </Link>
+              <Link
+              href="/process-tailoring"
+              className={`px-3 py-1.5 rounded-md text-sm font-medium ${
+                isActive("/app/process-tailoring")
+                  ? "bg-indigo-600 text-white"
+                  : "text-slate-700 hover:bg-slate-100"
+              }`}
+            >
+              Tailor Process
             </Link>
           </div>
         </div>
