@@ -197,14 +197,14 @@ export default function Page() {
             <span className="px-2 py-1 bg-white border rounded text-xs sm:text-sm">
               {bookCount}
             </span>
-            {response && (
+            {/*response && (
               <button
                 onClick={() => setShowRaw((s) => !s)}
                 className="ml-2 sm:ml-3 text-xs px-2 sm:px-3 py-1 rounded border bg-white hover:bg-gray-50"
               >
                 {showRaw ? "Hide raw" : "Show raw"}
               </button>
-            )}
+            )*/} 
           </div>
 
           <div className="flex items-center gap-2 flex-wrap w-full sm:w-auto">
