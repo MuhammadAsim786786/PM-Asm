@@ -4,11 +4,7 @@ import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-/**
- * ProcessTailoringPage
- * - Full component that renders scenario selection, generates tailored process,
- *   shows metadata, markdown (styled), citations & reference map.
- */
+
 export default function ProcessTailoringPage() {
   const [selectedScenario, setSelectedScenario] = useState("");
   const [response, setResponse] = useState(null);
@@ -78,7 +74,6 @@ export default function ProcessTailoringPage() {
     if (!response?.process) return;
     try {
       await navigator.clipboard.writeText(response.process);
-      // small UX hint — could add toast; kept minimal to match your code style
     } catch (e) {
       console.warn("Copy failed", e);
     }
@@ -97,7 +92,6 @@ export default function ProcessTailoringPage() {
     URL.revokeObjectURL(url);
   };
 
-  // Rich custom renderers for react-markdown
   const mdComponents = {
     h1: ({ children }) => (
       <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 mt-6 mb-4">
